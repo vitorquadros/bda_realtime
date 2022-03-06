@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# CSTSI-BDA: Atividade Aual 4 - Filtros com Firebase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Faça o clone do projeto com o comando git:
+>git clone https://github.com/g1ll/cstsi_bda_atividade_aula_04.git
 
-## Available Scripts
+Após o git fazer o download do projeto, entre na pasta ***cstsi_bda_atividade_aula_04***
 
-In the project directory, you can run:
+>cd cstsi_bda_atividade_aula_04
 
-### `npm start`
+Dentro da pasta execute o comando do npm para instalar as dependências, incluindo o Firebase:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+>npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Espere o npm instalar todas as dependências e siga para a configuração do seu projeto.
 
-### `npm test`
+Para configurar o acesso ao seu projeto no Firebase, crie o arquivo ***.env*** na raiz do projeto javascript:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Use este template: [.env](https://gist.githubusercontent.com/g1ll/6e401fcff66fae92aaa862903cc86669/raw/7bb0c78559e3fa1c82c469e7e905ba86a9dc27cc/.env)
 
-### `npm run build`
+[![env-file](https://i.ibb.co/KmC7gDg/env-file.png)](https://i.ibb.co/KmC7gDg/env-file.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Após criar cada variável de ambiente ***REACT_APP_NOME_CONFIG*** coloque o valor de acordo com as configurações de acesso de app ao seu projeto Firebase. Observe que as variáveis de ambiente usam o prefixo **REACT_APP_**, após este prefixo usa se o nome da variável da configuração do Firebase em formato MACRO_CASE.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+As variáveis de ambiente que configuram o acesso do app ao projeto no Firebase serão lidas no módulo *"Firebase/firebase"*:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[![firebase-config](https://i.ibb.co/h8KLFyq/firebase-config.png)](https://i.ibb.co/h8KLFyq/firebase-config.png)
 
-### `npm run eject`
+Caso o seu aquivo de configuração possua alguma variável que falta no módulo, apenas acrescente seguindo os padrões de nome em formato MACRO_CASE.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Agora já podemos testar o projeto rodando o comando abaixo no terminal e dentro da raiz do diretório do projeto:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+>npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Este comando irá iniciar um servidor local para rodar o seu projeto react no endereço: [http://localhost:3000](http://localhost:3000)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Para testar o projeto apenas acesse o endereço acima após a execução do comando **npm start**.
 
-## Learn More
+As alterações no código serão automaticamente compiladas, atualizando a página no endereço de teste.
+Caso a porta 3000 do seu computador já esteja ocupada, o npm irá lhe perguntar por outra porta ou rodará na pora 3001.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Agora o projeto cliente está pronto para a atividade!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Implementando as funções de Firebase/ProdutoDao.js
 
-### Code Splitting
+A atividade consiste da implementação das seguintes funções no módulo **[Firebase/ProdutoDao](https://github.com/g1ll/cstsi_bda_atividade_aula_04/blob/main/src/components/Firebase/ProdutosDao.js)** :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1 - ***GetOrderByChild(order, db, callback)***: Recebe o termo para a ordenação (***order***), uma referência ao banco de dados (***db***) e a referência à função de ***callback***, a qual deverá ser repassada ao evento apropriado do firebase.
 
-### Analyzing the Bundle Size
+2 - ***getFilterByChild(filter,value, db,callback)***: Recebe o nome do filtro a ser aplicado (***filter***), ou sejam filho do nó (***atributo***). Em value a função recebe o valor a ser filtrado. Os demais parâmetros são iguais a função anterior. Importante: esta função deverá retornar os dados do banco que sejam iguais ou maiores do que o valor do value.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3 - ***getMostExpensive(db, setValue, list)***: Ordenar pelos mais caros. Esta função recebe uma referência ao banco de dados (***db***). Esta função recebe como segundo parâmetro (***setValue***) a referêrencia da função que alterar os dados de estado do componente (***[ListProds](https://github.com/g1ll/cstsi_bda_atividade_aula_04/blob/main/src/components/App/listProds.js)***) responsável pela visualização dos resultados. E por fim, a referencia ao atributo que guarda os valores da lista retornada pelo firebase (***list***).
 
-### Making a Progressive Web App
+ Devido a sua natureza desta função, precisaremos implenetar o *callbak* e portanto usar  ***setValue([...list])*** quando os resultados estiverem prontos para serem repassados o componente do react.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+ 4 - ***getMostCheap(db, callback)***: Essa função deverá retornar a lista de produtos ordenada pelos menores preços, de menor a maior. Não é necessário desenvolver o *callback*, apenas repassá-lo para o evento apropriado do firebase.
 
-### Advanced Configuration
+ 5 - ***getPriceRange(value, db, callback)***: Esta função deverá mostrar um intervalo de valores, menores ou iguais ao definido. Como parâmetros, a função recebe o valor para a filtragem dos preços iguais ou menores do que o ***value***, uma referência ao banco de dados (***db***) e a referência a função de ***callback***, a qual será repassada ao evento do firebase.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Referências:
 
-### Deployment
+[Filtro de Dados no Firebase](https://firebase.google.com/docs/database/web/lists-of-data#filtering_data)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[Firebase Instalação e Configuração](https://firebase.google.com/docs/database/web/start?hl=pt)
 
-### `npm run build` fails to minify
+[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[React documentation](https://reactjs.org/).
+
+[Create React App](https://github.com/facebook/create-react-app).
+

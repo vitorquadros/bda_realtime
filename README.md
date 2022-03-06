@@ -42,6 +42,8 @@ Agora o projeto cliente está pronto para a atividade!
 
 ## Implementando as funções de Firebase/ProdutoDao.js
 
+**NÃO HÁ NECESSIDADE ALTERAR OS CÓDIGOS QUE NÃO SEJAM DO  ARQUIVO *ProdutoDao.JS***
+
 A atividade consiste da implementação das seguintes funções no módulo **[Firebase/ProdutoDao](https://github.com/g1ll/cstsi_bda_atividade_aula_04/blob/main/src/components/Firebase/ProdutosDao.js)** :
 
 1 - ***GetOrderByChild(order, db, callback)***: Recebe o termo para a ordenação (***order***), uma referência ao banco de dados (***db***) e a referência à função de ***callback***, a qual deverá ser repassada ao evento apropriado do firebase.

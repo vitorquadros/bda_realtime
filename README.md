@@ -42,7 +42,7 @@ Agora o projeto cliente está pronto para a atividade!
 
 ## Implementando as funções de Firebase/ProdutoDao.js
 
-**NÃO HÁ NECESSIDADE ALTERAR OS CÓDIGOS QUE NÃO SEJAM DO  ARQUIVO *ProdutoDao.JS***
+**NÃO HÁ NECESSIDADE DE ALTERAR OS CÓDIGOS QUE NÃO SEJAM DO ARQUIVO *ProdutoDao.js***
 
 A atividade consiste da implementação das seguintes funções no módulo **[Firebase/ProdutoDao](https://github.com/g1ll/cstsi_bda_atividade_aula_04/blob/main/src/components/Firebase/ProdutosDao.js)** :
 

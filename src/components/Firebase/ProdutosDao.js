@@ -37,7 +37,7 @@ function getMostExpensive(db,setValue,list){
      * setValue() com os parametros [...list], ou seja, setValue([...list])
      * onde em list deverá estar o array de produtos ordenados pelo preco
      * mais caro. Lembrando que list é um array, use os métodos para trabalhar
-     * com arrays em JavaScript!
+     * com arrays em JavaScript! Dica: usem reverse() ou unshift().
      * 
      *  */ 
 

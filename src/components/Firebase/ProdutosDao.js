@@ -15,7 +15,11 @@ import {
 } from "firebase/database"
 
 function getOrderByChild(order,db,callback){
-    //implement aqui
+    //Exemplo
+    console.log(order);
+    const refDB = ref(db,'produtos/');
+    const consulta = query(refDB,orderByChild(order))
+    onChildAdded(consulta,callback)
 }
 
 function getFilterByChild(filter,value, db,callback){
@@ -24,6 +28,20 @@ function getFilterByChild(filter,value, db,callback){
 
 function getMostExpensive(db,setValue,list){
     // implement aqui
+    /**
+     *     Nesta função é necessário implementar o callback,
+     * pois será necessário ordenar os resultados no cliente
+     * pelos produtos mais caros (reverso). É necessário chamar 
+     * a função setValue() e o array list passados como parametro.
+     * Para repassar os resultados so client React utiliza-se a função
+     * setValue() com os parametros [...list], ou seja, setValue([...list])
+     * onde em list deverá estar o array de parametros ordenados pelo preco
+     * mais caro. Lembrando que list é um array, use os métodos para trabalhar
+     * com arrays em JavaScript!
+     * 
+     *  */ 
+
+
 }
 
 function getMostCheap(db,callback){

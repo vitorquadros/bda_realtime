@@ -33,9 +33,9 @@ function getMostExpensive(db,setValue,list){
      * pois será necessário ordenar os resultados no cliente
      * pelos produtos mais caros (reverso). É necessário chamar 
      * a função setValue() e o array list passados como parametro.
-     * Para repassar os resultados so client React utiliza-se a função
+     * Para repassar os resultados do client React utiliza-se a função
      * setValue() com os parametros [...list], ou seja, setValue([...list])
-     * onde em list deverá estar o array de parametros ordenados pelo preco
+     * onde em list deverá estar o array de produtos ordenados pelo preco
      * mais caro. Lembrando que list é um array, use os métodos para trabalhar
      * com arrays em JavaScript!
      * 

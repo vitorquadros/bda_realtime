@@ -50,13 +50,13 @@ A atividade consiste da implementação das seguintes funções no módulo **[Fi
 
 2 - ***getFilterByChild(filter,value, db,callback)***: Recebe o nome do filtro a ser aplicado (***filter***), ou sejam filho do nó (***atributo***). Em value a função recebe o valor a ser filtrado. Os demais parâmetros são iguais a função anterior. Importante: esta função deverá retornar os dados do banco que sejam iguais ou maiores do que o valor do value.
 
-3 - ***getMostExpensive(db, setValue, list)***: Ordenar pelos mais caros. Esta função recebe uma referência ao banco de dados (***db***). Esta função recebe como segundo parâmetro (***setValue***) a referêrencia da função que alterar os dados de estado do componente (***[ListProds](https://github.com/g1ll/cstsi_bda_atividade_aula_04/blob/main/src/components/App/listProds.js)***) responsável pela visualização dos resultados. E por fim, a referencia ao atributo que guarda os valores da lista retornada pelo firebase (***list***).
+3 - ***getMostExpensive(db, setValue, list)***: Esta função solicitará ao firebase os resultados e ordená-los pelos mais caros. Esta função recebe uma referência ao banco de dados (***db***). Esta função recebe como segundo parâmetro (***setValue***) a referêrencia da função que altera os dados de estado do componente (***[ListProds](https://github.com/g1ll/cstsi_bda_atividade_aula_04/blob/main/src/components/App/listProds.js)***) responsável pela visualização dos resultados. E por fim, a referência ao atributo que guarda os valores da lista retornada pelo firebase (***list***).
 
- Devido a sua natureza desta função, precisaremos implenetar o *callbak* e portanto usar  ***setValue([...list])*** quando os resultados estiverem prontos para serem repassados o componente do react. Quarde os resultados na variável ***list*** e a repasse para o ***setValue***.
+ Devido a natureza desta função, ou seja, dados ordenados no cliente, precisaremos implenetar o *callbak* e portanto usar  ***setValue([...list])*** quando os resultados estiverem prontos para serem repassados o componente do react. Quarde os resultados prontos na variável ***list*** e após a repasse para o ***setValue***. A variável ***list*** é um array, portanto use os métodos de manipulação de arrays (*push*,*shift*, *unshift*,*pop*,*reverse*, *map*, *filter*, etc...)
 
- 4 - ***getMostCheap(db, callback)***: Essa função deverá retornar a lista de produtos ordenada pelos menores preços, de menor a maior. Não é necessário desenvolver o *callback*, apenas repassá-lo para o evento apropriado do firebase.
+ 4 - ***getMostCheap(db, callback)***: Essa função deverá solcitar ao firebase a lista de produtos ordenada pelos menores preços, de menor a maior. Não é necessário desenvolver o *callback*, apenas repassá-lo para o evento apropriado do firebase.
 
- 5 - ***getPriceRange(value, db, callback)***: Esta função deverá mostrar um intervalo de valores, menores ou iguais ao definido. Como parâmetros, a função recebe o valor para a filtragem dos preços iguais ou menores do que o ***value***, uma referência ao banco de dados (***db***) e a referência a função de ***callback***, a qual será repassada ao evento do firebase.
+ 5 - ***getPriceRange(value, db, callback)***: Esta função deverá solicitar um intervalo de valores, menores ou iguais ao definido. Como parâmetros, a função recebe o valor para a filtragem dos preços iguais ou menores do que o ***value***, uma referência ao banco de dados (***db***) e a referência a função de ***callback***, a qual será repassada ao evento do firebase.
 
 ## Referências:
 

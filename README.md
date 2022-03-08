@@ -52,7 +52,7 @@ A atividade consiste da implementação das seguintes funções no módulo **[Fi
 
 3 - ***getMostExpensive(db, setValue, list)***: Esta função solicitará ao firebase os resultados e ordená-los pelos mais caros. Esta função recebe uma referência ao banco de dados (***db***). Esta função recebe como segundo parâmetro (***setValue***) a referêrencia da função que altera os dados de estado do componente (***[ListProds](https://github.com/g1ll/cstsi_bda_atividade_aula_04/blob/main/src/components/App/listProds.js)***) responsável pela visualização dos resultados. E por fim, a referência ao atributo que guarda os valores da lista retornada pelo firebase (***list***).
 
- Devido a natureza desta função, ou seja, dados ordenados no cliente, precisaremos implenetar o *callbak* e portanto usar  ***setValue([...list])*** quando os resultados estiverem prontos para serem repassados o componente do react. Quarde os resultados prontos na variável ***list*** e após a repasse para o ***setValue***.
+ Devido a natureza desta função, ou seja, dados ordenados no cliente, precisaremos implenetar o *callbak* e portanto usar  ***setValue([...list])*** quando os resultados estiverem prontos para serem repassados o componente do react. Quarde os resultados prontos na variável ***list*** e após a repasse para o ***setValue***. A variável ***list*** é um array, portanto use os métodos de manipulação de arrays (*push*,*shift*, *unshift*,*pop*,*reverse*, *map*, *filter*, etc...)
 
  4 - ***getMostCheap(db, callback)***: Essa função deverá solcitar ao firebase a lista de produtos ordenada pelos menores preços, de menor a maior. Não é necessário desenvolver o *callback*, apenas repassá-lo para o evento apropriado do firebase.
 

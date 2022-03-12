@@ -8,8 +8,8 @@ export const TableProds = (props)=>{
                 <th>Id</th>
                 <th>Nome</th>
                 <th>Descricao</th>
-                <th>qtd_estoque</th>
-                <th>preco</th>
+                <th>Estoque</th>
+                <th>Preço &#128176;</th>
                 <th>Importado</th>
                 {/* <th colspan="2">Ações</th> */}
             </tr>
@@ -21,7 +21,7 @@ export const TableProds = (props)=>{
                 <td>{produto.nome}</td>
                 <td>{produto.descricao}</td>
                 <td>{produto.qtd_estoque}</td>
-                <td>{produto.preco}</td>
+                <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produto.preco)}</td>
                 <td>{(produto.importado)?'Sim':'Não'}</td>
                 {/* <td>
                     <a href="{{route('delete',$produto->id)}}" title='Deletar'>&#128465</a>

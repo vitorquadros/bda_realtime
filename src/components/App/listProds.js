@@ -9,6 +9,7 @@ import {
 import { TableProds } from './tableProds';
 import 'materialize-css';
 import { Button, Select, Row, Col, ProgressBar, TextInput } from 'react-materialize';
+import { Icon } from 'react-materialize';
 
 
 function ListProds(props) {
@@ -115,8 +116,20 @@ function ListProds(props) {
             </div>
             {/* <Button onClick={handlerApplyFilter}>Filtrar</Button> */}
             <div className='btnsContainers'>
-                <Button className="waves-effect waves-light btn red" onClick={handlerMostExpensive}>Mais Caros</Button>
-                <Button className="waves-effect waves-light btn" onClick={handlerMostCheap}>Mais Baratos</Button>
+                <Button
+                    className="waves-effect waves-light btn red"
+                    style={{ marginRight: '5px' }}
+                    onClick={handlerMostExpensive}>
+                    Mais Caros
+                    <Icon tiny left>account_balance_wallet</Icon>
+                </Button>
+                <Button
+                    className="waves-effect waves-light btn"
+                    style={{ marginRight: '5px' }}
+                    onClick={handlerMostCheap}>
+                    <Icon tiny left>savings</Icon>
+                    Mais Baratos
+                </Button>
             </div>
         </div>
         <div className={'tableContainer'}>

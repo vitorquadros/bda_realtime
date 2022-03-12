@@ -6,11 +6,12 @@ import ListProds from './listProds.js'
 const applicaiton=(props)=>{
 
     return(
-        <div>
-            <h1>Produtos</h1>
-            <hr />
-            <ListProds firebase={props.firebase}></ListProds>
-        </div>);
+        <div >
+        <div className='titlePage'>
+            Produtos
+        </div>
+        <ListProds firebase={props.firebase}></ListProds>
+    </div>);
 }
 
 const App = withFirebase(applicaiton)

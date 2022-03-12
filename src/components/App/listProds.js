@@ -112,7 +112,7 @@ function ListProds(props) {
                     step='10'
                     onChange={handlerPriceRange}
                 />
-                &nbsp;R$: {priceRange}
+                &nbsp;{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(priceRange)}
             </div>
             {/* <Button onClick={handlerApplyFilter}>Filtrar</Button> */}
             <div className='btnsContainers'>

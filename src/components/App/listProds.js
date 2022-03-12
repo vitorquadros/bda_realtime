@@ -7,12 +7,15 @@ import {
     getPriceRange
 } from '../Firebase/ProdutosDao';
 import { TableProds } from './tableProds';
+import 'materialize-css';
+import { Button, Select, Row, Col, ProgressBar, TextInput } from 'react-materialize';
+
 
 function ListProds(props) {
 
     const prods = []
     const [data, setData] = useState([])
-    const [load, setLoad] = useState(true)
+    const [loading, setLoad] = useState(true)
     const [order, setOrder] = useState('id_prod')
     const [filter, setFilter] = useState('nome')
     const [priceRange, setPriceRange] = useState(20000)
@@ -28,13 +31,13 @@ function ListProds(props) {
 
     function loadProdsFb() {
         getOrderByChild(order, props.firebase.db, receiveProds)
-        console.log({'ordenar':order})
+        console.log({ 'ordenar': order })
     }
 
     function receiveProds(snap) {
         if (snap.exists()) {
             prods.push({ 'id': snap.key, ...snap.val() })
-            console.log({"produto":{ 'id': snap.key, ...snap.val()}})
+            console.log({ "produto": { 'id': snap.key, ...snap.val() } })
             setData([...prods])
         }
     }
@@ -75,41 +78,58 @@ function ListProds(props) {
         getPriceRange(priceRange, props.firebase.db, receiveProds)
     }
 
-    return (<>
-        <div>Ordenar por:
-            <select name='order' onChange={handlerSelectOrder}>
+    return (<div className='flex-container'>
+        <div className={'filterFormContainer'}>
+            <label for="order">Ordenar por:</label>
+            <Select id='order' name='order' onChange={handlerSelectOrder}>
                 <option value={'id_prod'} selected={((order === 'id_prod') ? true : false)} >ID</option>
                 <option value={'preco'} selected={((order === 'preco') ? true : false)}>Preco</option>
                 <option value={'qtd_estoque'} selected={((order === 'qtd_estoque') ? true : false)}>Quantidade</option>
                 <option value={'nome'} selected={((order === 'nome') ? true : false)}>Nome</option>
-            </select>
-            &nbsp;|&nbsp;Filtrar por:
-            <select name='field' onChange={handlerSelectFilter}>
-                <option value={'nome'} selected={((filter === 'nome') ? true : false)} >Nome</option>
-                <option value={'descricao'} selected={((filter === 'descricao') ? true : false)}>Descricao</option>
-            </select>
-            &nbsp;|&nbsp;Termo de filtro: <input id='termo' placeholder='Digite o termo' onChange={handlerApplyFilter} />
-            <button onClick={handlerApplyFilter}>Filtrar</button>
-            <br />
-            <button onClick={handlerMostExpensive}>Mais Caros</button>
-            <button onClick={handlerMostCheap}>Mais Baratos</button>
-            &nbsp;|&nbsp;<label for="vol">Preco:</label>
-            R$ 10-20k<input type="range"
-                id="price_range"
-                name="price_range"
-                value={priceRange}
-                min="20"
-                step='10'
-                max="20000"
-                onChange={handlerPriceRange}
-            /> R$: {priceRange}
-        </div><hr/>
-        <ul>
+            </Select>
+            <div className='filterPanel'>
+                <div>
+                    <label for="filter">Filtrar por:</label>
+                    <Select id='filter' name='field' onChange={handlerSelectFilter}>
+                        <option value={'nome'} selected={((filter === 'nome') ? true : false)} >Nome</option>
+                        <option value={'descricao'} selected={((filter === 'descricao') ? true : false)}>Descricao</option>
+                    </Select>
+                </div>
+                <div>
+                    <label for="termo"> Termo de filtro:</label>
+                    <TextInput id="termo" placeholder='Digite o termo' onChange={handlerApplyFilter} />
+                </div>
+            </div>
+            <label for="vol">Preco:</label>
+            <div className='rangeStyle'>
+                R$ 10-20k&nbsp;<input type='range'
+                    id={"price_range"}
+                    name={"price_range"}
+                    value={priceRange}
+                    max='20000'
+                    min='10'
+                    step='10'
+                    onChange={handlerPriceRange}
+                />
+                &nbsp;R$: {priceRange}
+            </div>
+            {/* <Button onClick={handlerApplyFilter}>Filtrar</Button> */}
+            <div className='btnsContainers'>
+                <Button className="waves-effect waves-light btn red" onClick={handlerMostExpensive}>Mais Caros</Button>
+                <Button className="waves-effect waves-light btn" onClick={handlerMostCheap}>Mais Baratos</Button>
+            </div>
+        </div>
+        <div className={'tableContainer'}>
             {(data.length > 0) ?
                 <TableProds produtos={data}></TableProds>
-                : <p>{load ? 'Loaging...' : 'Sorry! No Data Founded. :('}</p>}
-        </ul>
-    </>);
+                : (loading) ? <Row>
+                    <Col s={12}>
+                        <ProgressBar />
+                    </Col>
+                </Row> : <p>Sem Resultados</p>
+            }
+        </div>
+    </div>);
 }
 
 export default ListProds

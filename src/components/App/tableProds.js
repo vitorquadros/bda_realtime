@@ -1,8 +1,9 @@
 import React from "react";
+import { Table,Checkbox } from 'react-materialize';
 
 export const TableProds = (props)=>{
     
-    return(<><table>
+    return(<><Table className="striped responsive-table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -22,7 +23,7 @@ export const TableProds = (props)=>{
                 <td>{produto.descricao}</td>
                 <td>{produto.qtd_estoque}</td>
                 <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produto.preco)}</td>
-                <td>{(produto.importado)?'Sim':'Não'}</td>
+                <td>{(produto.importado)?<Checkbox checked/>:<label>não</label>}</td>
                 {/* <td>
                     <a href="{{route('delete',$produto->id)}}" title='Deletar'>&#128465</a>
                     <a href="{{route('edit',$produto->id)}}" title="Editar">✎</a>
@@ -30,6 +31,6 @@ export const TableProds = (props)=>{
             </tr>)
             })}
         </tbody>
-    </table>
+    </Table>
     </>)
 }

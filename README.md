@@ -48,9 +48,9 @@ Caso a porta 3000 do seu computador já esteja ocupada, o npm irá lhe perguntar
 
 Agora o projeto cliente está pronto para a atividade!
 
-## Implementando as funções de Firebase/ProdutoDao.js
+## Implementando as funções de Firebase/ProdutosDao.js
 
-**NÃO HÁ NECESSIDADE DE ALTERAR OS CÓDIGOS QUE NÃO SEJAM DO ARQUIVO *ProdutoDao.js***
+**NÃO HÁ NECESSIDADE DE ALTERAR OS CÓDIGOS QUE NÃO SEJAM DO ARQUIVO *ProdutosDao.js***
 
 A atividade consiste da implementação das seguintes funções no módulo **[Firebase/ProdutoDao](https://github.com/g1ll/cstsi_bda_atividade_aula_04/blob/main/src/components/Firebase/ProdutosDao.js)** :
 

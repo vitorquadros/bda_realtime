@@ -2,7 +2,7 @@
 
 ## Exemplo:
 
-[!exemplo](https://i.ibb.co/h8KLFyq/firebase-config.png)](
+[![exemplo](https://i.ibb.co/h8KLFyq/firebase-config.png)](https://i.ibb.co/h8KLFyq/firebase-config.png)](
 https://i.ibb.co/kyh2Jrf/2022-03-13-00-39-55.gif)
 
 Faça o clone do projeto com o comando git:

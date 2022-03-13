@@ -1,5 +1,10 @@
 # CSTSI-BDA: Atividade Aual 4 - Filtros com Firebase
 
+## Exemplo:
+
+[!exemplo](https://i.ibb.co/h8KLFyq/firebase-config.png)](
+https://i.ibb.co/kyh2Jrf/2022-03-13-00-39-55.gif)
+
 Faça o clone do projeto com o comando git:
 >git clone https://github.com/g1ll/cstsi_bda_atividade_aula_04.git
 
@@ -57,6 +62,7 @@ A atividade consiste da implementação das seguintes funções no módulo **[Fi
  4 - ***getMostCheap(db, callback)***: Essa função deverá solcitar ao firebase a lista de produtos ordenada pelos menores preços, de menor a maior. Não é necessário desenvolver o *callback*, apenas repassá-lo para o evento apropriado do firebase.
 
  5 - ***getPriceRange(value, db, callback)***: Esta função deverá solicitar um intervalo de valores, menores ou iguais ao definido. Como parâmetros, a função recebe o valor para a filtragem dos preços iguais ou menores do que o ***value***, uma referência ao banco de dados (***db***) e a referência a função de ***callback***, a qual será repassada ao evento do firebase.
+
 
 ## Referências:
 

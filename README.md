@@ -4,7 +4,7 @@
 
 [![exemplo](exemplo.gif)](exemplo.gif)
 
-Crie um projeto no firebase com o Realtime Database utilizando este arquivo ***[atividade-aulas-03-4-default-rtdb-export.json](https://raw.githubusercontent.com/g1ll/exemplo_atividade_aula03/main/database/atividade-aulas-03-4-default-rtdb-export.json)***.
+Crie um projeto no Firebase com o Realtime Database e importe este arquivo ***[atividade-aulas-03-4-default-rtdb-export.json](https://raw.githubusercontent.com/g1ll/exemplo_atividade_aula03/main/database/atividade-aulas-03-4-default-rtdb-export.json)***.
 
 Faça o clone do projeto com o comando git:
 >git clone https://github.com/g1ll/cstsi_bda_atividade_aula_04.git

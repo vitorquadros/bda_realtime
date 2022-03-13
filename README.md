@@ -2,7 +2,7 @@
 
 ## Exemplo:
 
-[![exemplo](./gif/exemplo.gif)](gif/exemplo.gif)
+[![exemplo](exemplo.gif)](exemplo.gif)
 
 Faça o clone do projeto com o comando git:
 >git clone https://github.com/g1ll/cstsi_bda_atividade_aula_04.git

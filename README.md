@@ -25,9 +25,9 @@ Para configurar o acesso ao seu projeto no Firebase, crie o arquivo ***.env*** n
 
 Use este template: [.env](https://gist.githubusercontent.com/g1ll/6e401fcff66fae92aaa862903cc86669/raw/7bb0c78559e3fa1c82c469e7e905ba86a9dc27cc/.env)
 
-[![env-file](https://i.ibb.co/KmC7gDg/env-file.png)](https://i.ibb.co/KmC7gDg/env-file.png)
+[![env-file](https://i.ibb.co/HVbzyMF/env-file-config.png)](https://i.ibb.co/HVbzyMF/env-file-config.png)
 
-Após criar cada variável de ambiente ***REACT_APP_NOME_CONFIG*** coloque o valor de acordo com as configurações de acesso de app ao seu projeto Firebase. Observe que as variáveis de ambiente usam o prefixo **REACT_APP_**, após este prefixo usa se o nome da variável da configuração do Firebase em formato MACRO_CASE.
+Após criar cada variável de ambiente ***REACT_APP_NOME_CONFIG*** coloque o valor de acordo com as configurações de acesso de app ao seu projeto Firebase. Observe que as variáveis de ambiente usam o prefixo **REACT_APP_**, após este prefixo usa se o nome da variável da configuração do Firebase em formato MACRO_CASE. *NÃO USE VIRGULA NO FINAL DE CADA VARIÁVEL, NÃO É NECESSÁRIO, POIS TUDO QUE VIER DEPOIS DO NOME DA VARIÁVEL SERÁ CONSIDERADO CONTEÚDO DA VARIÁVEL!*
 
 As variáveis de ambiente que configuram o acesso do app ao projeto no Firebase serão lidas no módulo *"Firebase/firebase"*:
 

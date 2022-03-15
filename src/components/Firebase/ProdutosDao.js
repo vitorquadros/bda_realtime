@@ -24,6 +24,7 @@ function getOrderByChild(order,db,callback){
 
 function getFilterByChild(filter,value, db,callback){
     //implement aqui
+    console.log(filter)
 }
 
 function getMostExpensive(db,setValue,list){

@@ -20,11 +20,6 @@ function ListProds(props) {
     const [order, setOrder] = useState('id_prod')
     const [filter, setFilter] = useState('nome')
     const [priceRange, setPriceRange] = useState(20000)
-    const filterNames = {
-        'id_prod': 'ID',
-        'preco': 'Preço',
-        'qtd_estoque': 'Quantidade em Estoque'
-    }
 
     useEffect(() => {
         loadProdsFb()
@@ -39,7 +34,7 @@ function ListProds(props) {
         if (snap.exists()) {
             prods.push({ 'id': snap.key, ...snap.val() })
             console.log({ "produto": { 'id': snap.key, ...snap.val() } })
-            setData([...prods])
+            prods.length?setData([...prods]):setLoad(false)
         }
     }
 
@@ -76,32 +71,33 @@ function ListProds(props) {
         setData([...prods])
         setPriceRange(event.target.value)
         if (event.target.value == 0) setLoad(false)
-        getPriceRange(priceRange, props.firebase.db, receiveProds)
+        getPriceRange(event.target.value, props.firebase.db, receiveProds)
     }
 
     return (<div className='flex-container'>
         <div className={'filterFormContainer'}>
-            <label for="order">Ordenar por:</label>
-            <Select id='order' name='order' onChange={handlerSelectOrder}>
-                <option value={'id_prod'} selected={((order === 'id_prod') ? true : false)} >ID</option>
-                <option value={'preco'} selected={((order === 'preco') ? true : false)}>Preco</option>
-                <option value={'qtd_estoque'} selected={((order === 'qtd_estoque') ? true : false)}>Quantidade</option>
-                <option value={'nome'} selected={((order === 'nome') ? true : false)}>Nome</option>
+            <label htmlFor="order">Ordenar por:</label>
+            <Select id='order' name='order' onChange={handlerSelectOrder} 
+                value={order}>
+                <option value={'id_prod'} >ID</option>
+                <option value={'preco'} >Preco</option>
+                <option value={'qtd_estoque'} >Quantidade</option>
+                <option value={'nome'} >Nome</option>
             </Select>
             <div className='filterPanel'>
                 <div>
-                    <label for="filter">Filtrar por:</label>
-                    <Select id='filter' name='field' onChange={handlerSelectFilter}>
-                        <option value={'nome'} selected={((filter === 'nome') ? true : false)} >Nome</option>
-                        <option value={'descricao'} selected={((filter === 'descricao') ? true : false)}>Descricao</option>
+                    <label htmlFor="filter">Filtrar por:</label>
+                    <Select id='filter' name='field' onChange={handlerSelectFilter} value={filter}>
+                        <option value={'nome'} >Nome</option>
+                        <option value={'descricao'} >Descricao</option>
                     </Select>
                 </div>
                 <div>
-                    <label for="termo"> Termo de filtro:</label>
+                    <label htmlFor="termo"> Termo de filtro:</label>
                     <TextInput id="termo" placeholder='Digite o termo' onChange={handlerApplyFilter} />
                 </div>
             </div>
-            <label for="vol">Preco:</label>
+            <label htmlFor="vol">Preco:</label>
             <div className='rangeStyle'>
                 R$ 10-20k&nbsp;<input type='range'
                     id={"price_range"}

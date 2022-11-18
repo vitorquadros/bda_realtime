@@ -23,7 +23,7 @@ export const TableProds = (props)=>{
                 <td>{produto.descricao}</td>
                 <td>{produto.qtd_estoque}</td>
                 <td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produto.preco)}</td>
-                <td>{(produto.importado)?<Checkbox checked/>:<label>não</label>}</td>
+                <td>{(produto.importado)?<Checkbox label="" value="" checked /> :<label>não</label>}</td>
                 {/* <td>
                     <a href="{{route('delete',$produto->id)}}" title='Deletar'>&#128465</a>
                     <a href="{{route('edit',$produto->id)}}" title="Editar">✎</a>

@@ -49,7 +49,7 @@ function getMostCheap(db,callback){
     //implemente aqui
 }
 
-function getPriceRange(value, db,callback){
+function getPriceRange(value, db,callback){//0--->limit
     //implemente aqui
 }
 
